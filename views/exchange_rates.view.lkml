@@ -6,7 +6,7 @@ view: exchange_rates {
     label: "Date"
     description: "Gregorian Date"
     type: date
-    sql: ${TABLE}.Date ;;
+    sql: cast(${TABLE}.Date as timestamp) ;;
   }
 
   dimension: cur_from_code {
