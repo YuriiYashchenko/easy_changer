@@ -2,12 +2,31 @@ view: exchange_rates {
   derived_table: {
     sql: select * from `bi-twr.exchange_rates_US.rates` ;;
   }
-  dimension: Date {
+  dimension: date {
+    label: "Date"
+    description: "Gregorian Date"
     type: date
+    sql: ${TABLE}.Date ;;
   }
-  dimension: cur_from_code {}
-  dimension: cur_to_code {}
-  dimension: rate {
+
+  dimension: cur_from_code {
+    label: "Local Currency Code"
+    description: "Currency code of location"
+    type: string
+    sql: ${TABLE}.cur_from_code ;;
+  }
+
+  dimension: cur_to_code {
+    label: "Base Currency Code"
+    description: "Company base currency code"
+    type: string
+    sql: ${TABLE}.cur_to_code ;;
+  }
+
+  dimension: exchange_rate {
+    label: "Exchange Rate"
+    description: "Exchange rate from local currency to base currency"
     type: number
+    sql: ${TABLE}.rate ;;
   }
 }
