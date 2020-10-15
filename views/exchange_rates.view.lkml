@@ -7,7 +7,7 @@ view: exchange_rates {
   }
   dimension: cur_from_code {}
   dimension: cur_to_code {}
-  measure: rate {
+  dimension: rate {
     type: number
   }
 }
